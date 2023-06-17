@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uboblu</title>
+    <link rel="stylesheet" href="https://api-ssps.cajthaml.eu/file/global/css/reset_ld9mrCCm.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="backCursor"></div>
+
+    <header>
+        <nav>
+            <i>Nabídky</i>
+            <i>Záruky</i>
+        </nav>
+        <section class="logo">
+            <div></div>
+            <hr>
+            <hr>
+        </section>
+        <nav>
+            <i>Přihlášení</i>
+            <i>Registrace</i>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <p>nekonečná zábava</p>
+            <h1>Postavte si svojí<br>Budoucnost rychle<br>Dohromady s námi</h1>
+            <p>Svět jde ku předu, my jsme připraveni. Půjdete s námi?</p>
+            <section class="circles">
+                <section class="circle"></section>
+                <section class="circle"></section>
+                <section class="circle selected"></section>
+                <section class="circle"></section>
+            </section>
+        </section>
+        <img class="imgCenter"></img>
+        <section class="whiteBox">
+            <section>
+                <h3>S čím chcete začít?</h3>
+                <hr>
+            </section>
+        </section>
+        <section class="pink">
+            <section class="lines">
+                <div></div>
+                <div></div>
+                <div></div>
+            </section>
+            <section>
+                <h2>Budoucnost plná<br>krásných snů bez<br>jediného zádrhelu</h2>
+                <p>Uboblu je světově známý životu poradce, kterému věří miliony lidí. Vaše spokojenost je naším
+                    nejhlavnějším záměrem,</p>
+            </section>
+        </section>
+        <section class="imgSide"></section>
+    </main>
+
+    <script>
+        const circles = document.querySelectorAll('.circle');
+        const images = [
+            "url(https://images.unsplash.com/photo-1682687219612-b12805df750d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80)",
+            "url(https://images.unsplash.com/photo-1686592136364-bca4dfcddff5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80)",
+            "url(https://api-ssps.cajthaml.eu/file/2021-2022/2-wba/62/kei-fgAQcdB8N40-unsplash_zisMdlO5.jpg)",
+            "url(https://images.unsplash.com/photo-1598040795256-03d22d952f4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80)"
+        ];
+        const centerImage = document.querySelector(".imgCenter");
+        let selected = 2;
+
+        const cursor = document.querySelector(".backCursor");
+
+        document.body.onpointermove = event => {
+            //toto je inspirováno skvělým kanálem Hyperflexed: https://www.youtube.com/watch?v=kySGqoU7X-s
+            const {clientX, clientY} = event;
+
+            cursor.animate({
+                left: clientX + 'px',
+                top: clientY + 'px'
+            }, {duration: 1000, fill: "forwards"});
+        }
+
+        circles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                const i = Array.from(circles).indexOf(circle);
+                circles.forEach(Element => {
+                    Element.classList.remove("selected");
+                });
+                circles[i].classList.add("selected");
+                selected = i;
+                centerImage.style.backgroundImage = images[i];
+            });
+        });
+
+        setInterval(function changeImg() {
+            if (selected == 3) {
+                selected = 0;
+            }
+            else {
+                selected++;
+            }
+
+            circles.forEach(Element => {
+                Element.classList.remove("selected");
+            });
+
+            circles[selected].classList.add("selected");
+            centerImage.style.backgroundImage = images[selected];
+        }, 5000);
+    </script>
+</body>
+
+</html>

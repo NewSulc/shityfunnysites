@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #575fcf;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.backCursor {
+    position: absolute;
+    aspect-ratio: 1;
+    background-color: rgba(255, 255, 255, 0.418);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    box-shadow: 0px 0px 75px 25px rgba(255, 255, 255, 1);
+}
+
+header {
+    width: 100%;
+    height: 6rem;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr;
+}
+
+header>nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+header>nav>i {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1.2s;
+}
+
+header>nav>i:hover {
+    letter-spacing: 0.8rem;
+    transition: 0.8s;
+}
+
+header>.logo {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+header>.logo>div {
+    border: white 5px solid;
+    width: 3.7rem;
+    height: 3.2rem;
+    border-radius: 1rem;
+    transform: skew(-15deg) rotate(-10deg);
+    transition: 1s;
+}
+
+.logo>hr {
+    position: absolute;
+    width: 4rem;
+    background-color: #575fcf;
+    border: solid 5px #575fcf;
+    transform: rotate(5deg) translateY(8px);
+    transition: 1s;
+}
+
+.logo:hover>hr {
+    background-color: white;
+    border: solid 5px white;
+}
+
+.logo>hr:nth-child(2) {
+    transform: rotate(5deg) translateY(-8px);
+}
+
+main {
+    width: 100%;
+    height: 49.09rem;
+    position: relative;
+    display: flex;
+}
+
+main>section:first-child {
+    width: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 5;
+    position: absolute;
+    left: 5%;
+}
+
+main>section:first-child>h1 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+    font-weight: 900;
+}
+
+main>section:first-child>p:first-child {
+    text-transform: uppercase;
+}
+
+.circles {
+    height: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.circles>.circle {
+    height: 100%;
+    aspect-ratio: 1/1;
+    border: white 2px solid;
+    border-radius: 50%;
+}
+
+.selected {
+    background-color: white;
+}
+
+.imgCenter {
+    height: 100%;
+    width: 30%;
+    background-image: url(https://api-ssps.cajthaml.eu/file/2021-2022/2-wba/62/kei-fgAQcdB8N40-unsplash_zisMdlO5.jpg);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 30%;
+    z-index: 3;
+}
+
+.whiteBox {
+    width: 30%;
+    height: 10rem;
+    background-color: white;
+    position: absolute;
+    color: black;
+    bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.whiteBox>section {
+    width: 60%;
+}
+
+.whiteBox>section>h3 {
+    transform: translateX(0%);
+    transition: 0.5s;
+}
+
+.whiteBox:hover>section>h3 {
+    transform: translateX(22%);
+    transition: 1s;
+}
+
+.whiteBox>section>hr {
+    border: black 1px solid;
+}
+
+.pink {
+    width: 40%;
+    height: 38rem;
+    background-color: rgb(214, 127, 193);
+    position: absolute;
+    left: 60%;
+    bottom: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pink>.lines {
+    width: 50%;
+    height: 7rem;
+    margin: 5rem;
+    transform: translate(-5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pink>.lines>div {
+    width: 6rem;
+    height: 0.5rem;
+    background-color: white;
+    transform: rotate(-45deg);
+}
+
+.pink>section:nth-child(2) {
+    margin-left: 3rem;
+}
+
+.pink>section:nth-child(2)>h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.pink>section:nth-child(2)>p {
+    width: 80%;
+    line-height: 1.5rem;
+}
+
+.imgSide {
+    width: 15rem;
+    height: 30rem;
+    background: url(https://api-ssps.cajthaml.eu/file/2021-2022/2-wba/62/nathan-dumlao-k9TtK-UirRg-unsplash_RGfTyAJU.jpg);
+    background-size: cover;
+    position: absolute;
+    z-index: 5;
+    right: 0%;
+    bottom: 45%;
+}
